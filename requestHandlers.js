@@ -221,12 +221,20 @@ function files(res){
 	});
 }
 
-function http1(res){
-	// var httpMethods = http.METHODS;
+function httpMoudle(res){
+	var httpMethods = http.METHODS; //返回的是数组
 	var httpStatusCodes = http.STATUS_CODES;
 	res.writeHead(200, {'Content-Type': 'text/plain'});
 	// res.write(util.inspect(httpMethods).toString());
-	res.write(util.inspect(httpStatusCodes).toString());
+	// res.write(util.inspect(httpStatusCodes).toString());
+	
+	// get 方法
+	http.get('http://127.0.0.1/node1/index.json', (res) => {
+		console.log(res.statusCode)
+	});
+
+	// console.log(http.globalAgent);
+
 	res.end();
 }
 
@@ -420,7 +428,7 @@ exports.start = start;
 exports.say = say;
 exports.upload = upload;
 exports.files = files;
-exports.http1 = http1;
+exports.httpMoudle = httpMoudle;
 exports.urlModule = urlModule;
 exports.pathModule = pathModule;
 exports.globalFunc = globalFunc;
