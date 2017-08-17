@@ -1,12 +1,14 @@
 var http = require('http');
-var url = require('url');
-function start(route, handle){
+const port = 3000;
+function start(){
 	function onRequest(req, res){
-		var pathname = url.parse(req.url).pathname;
-		route(handle, pathname, res);
+		res.writeHead(200, 'Content-type: text/plain');
+		res.write('111111');
+		res.end();
 	}
-	http.createServer(onRequest).listen(3000, function(){
-		console.log('server running on port 3000.');
+	http.createServer(onRequest).listen(port, function(){
+		console.log('server running on '+port)
 	});
 }
+
 exports.start = start;
