@@ -1,0 +1,31 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "this is node demo",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "formidable": "^1.1.1",
+    "iconv-lite": "^0.4.18",
+    "mongoose": "^4.11.7",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node start",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrintingChen/node.git"
+  },
+  "keywords": [
+    "demo"
+  ],
+  "author": "stay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrintingChen/node/issues"
+  },
+  "homepage": "https://github.com/PrintingChen/node#readme"
+}

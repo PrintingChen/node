@@ -5,8 +5,12 @@ var util = require('util');
 function upload(res, req){
 	console.log('upload server')
 	if (req.method.toLowerCase() === 'get') {
-		res.writeHead(200, {'Content-type': 'text/plain'});
-		res.end('404 not found');
+		// res.writeHead(200, {'Content-type': 'text/plain'});
+		// res.end('404 not found');
+		var html = fs.readFileSync('public/404.html');
+		res.writeHead(200, 'Content-Type: text/html');
+		res.write('404: not found');
+		res.end();
 	}else if (req.method.toLowerCase() === 'post'){
 		var form = new formidable.IncomingForm();
 		// 是否保持原来的文件扩展名 默认为false
