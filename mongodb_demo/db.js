@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 //链接数据库
-var DB_URL = 'mongodb://localhost:27017/book';
+var DB_URL = 'mongodb://localhost:27017/user';
 /**
  * 连接
  */
