@@ -5,5 +5,10 @@ module.exports = {
 		age: {type: Number},
 		loginDate: {type: Date, default: Date.now},
 		isDelete: {type: Boolean}
-	}
+	},
+    picture: {
+		name: String,
+		description: String,
+		imgSrc: String
+    }
 }

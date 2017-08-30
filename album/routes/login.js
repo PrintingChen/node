@@ -6,16 +6,23 @@ module.exports = function(app){
 	app.post('/login', function(req, res){
 		var User = global.dbHelper.getModel('user');
 		var data = req.body; //请求的数据
-		var wherestr = {userName: data.uname, pwd: data.upwd}
-		User.find(wherestr, function(err, res1){
+		var wherestr = {userName: data.uname}
+		User.findOne(wherestr, function(err, doc){
 			if (err) {
 				console.log('err:', err)
+			}else if(!doc){
+				req.session.error = '用户名不存在！';
+				res.send('nu');
+				// res.send({data: doc,status: 0});
 			}else{
-				console.log('find success:', res1)
-				if (res1.length > 0) {
-					res.send({data: res1,status: 1});
+				if (data.upwd != doc.pwd) {
+					req.session.error = '密码错误！';
+					// res.send({data: doc,status: 0});
+					res.send('np');
 				}else{
-					res.send({data: res1, status: 0});
+					req.session.user = doc.userName; //登陆成功后，保存用户名
+					// res.send({data: doc, status: 1});
+					res.send('success');
 				}
 			}
 		});
